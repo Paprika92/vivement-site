@@ -5,61 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vivement — Politique de confidentialité</title>
 <meta name="description" content="Politique de confidentialité de Vivement : aucune donnée collectée.">
-<style>
-  :root {
-    --accent: #6E3AA8;
-    --fond: #F2F2F7;
-    --carte: #FFFFFF;
-    --texte: #1C1C1E;
-    --texte2: #6E6E73;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --accent: #B48AF2;
-      --fond: #000000;
-      --carte: #1C1C1E;
-      --texte: #FFFFFF;
-      --texte2: #98989F;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--fond);
-    color: var(--texte);
-    font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
-  }
-  main {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 48px 16px 64px;
-  }
-  h1 { font-size: 2rem; margin: 0 0 4px; }
-  .sous-titre { color: var(--texte2); margin: 0 0 32px; }
-  .carte {
-    background: var(--carte);
-    border-radius: 20px;
-    padding: 20px 24px;
-    margin-bottom: 18px;
-  }
-  .carte h2 { font-size: 1.15rem; margin: 0 0 8px; color: var(--accent); }
-  .carte p, .carte ul { margin: 0 0 10px; }
-  .carte p:last-child, .carte ul:last-child { margin-bottom: 0; }
-  ul { padding-left: 20px; }
-  a { color: var(--accent); }
-  .pied {
-    color: var(--texte2);
-    font-size: 0.9rem;
-    text-align: center;
-    margin-top: 32px;
-  }
-  .retour { display: inline-block; margin-bottom: 24px; text-decoration: none; font-weight: 600; }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<main>
-  <a class="retour" href="index.html">← Vivement</a>
+
+<header class="site">
+  <a class="marque" href="index.html">Vivement</a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="support.html">Support</a>
+  </nav>
+</header>
+
+<main class="etroit">
+
   <h1>Politique de confidentialité</h1>
   <p class="sous-titre">Dernière mise à jour : 15 octobre 2026</p>
 
@@ -91,7 +50,7 @@
 
   <div class="carte">
     <h2>Données embarquées</h2>
-    <p>Les contenus de l'almanach (jours fériés, vacances scolaires, soldes, saints, dictons, saisonnalité…) sont embarqués dans l'app. L'app ne fait aucune requête réseau pour fonctionner.</p>
+    <p>Les contenus de dates (jours fériés, vacances scolaires, soldes, saints, dictons, saisonnalité…) sont embarqués dans l'app. L'app ne fait aucune requête réseau pour fonctionner.</p>
   </div>
 
   <div class="carte">
@@ -100,7 +59,19 @@
     <p>Une question ? Écris à <a href="mailto:studiopaprikafr@gmail.com">studiopaprikafr@gmail.com</a>.</p>
   </div>
 
-  <p class="pied">Cette politique peut évoluer avec l'app ; la date ci-dessus fait foi.</p>
+  <p class="sous-titre" style="margin-top: 24px; text-align: center;">Cette politique peut évoluer avec l'app ; la date ci-dessus fait foi.</p>
+
 </main>
+
+<footer class="site">
+  <nav>
+    <a href="support.html">Support</a>
+    <a href="cgu.html">Conditions d'utilisation</a>
+    <a href="confidentialite.html">Confidentialité</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+  </nav>
+  <p>Vivement est éditée par Tom Soghomonian (Studio Paprika), Paris.</p>
+</footer>
+
 </body>
 </html>

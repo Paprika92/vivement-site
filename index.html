@@ -3,105 +3,91 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vivement — Support</title>
-<meta name="description" content="Vivement — les dates qui comptent, en widgets. Jours fériés, ponts, vacances, poubelles, paie. Support et contact.">
-<style>
-  :root {
-    --accent: #6E3AA8;
-    --fond: #F2F2F7;
-    --carte: #FFFFFF;
-    --texte: #1C1C1E;
-    --texte2: #6E6E73;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --accent: #B48AF2;
-      --fond: #000000;
-      --carte: #1C1C1E;
-      --texte: #FFFFFF;
-      --texte2: #98989F;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--fond);
-    color: var(--texte);
-    font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
-  }
-  main {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 48px 16px 64px;
-  }
-  h1 { font-size: 2.4rem; margin: 0 0 4px; }
-  .sous-titre { color: var(--texte2); margin: 0 0 32px; font-size: 1.1rem; }
-  .carte {
-    background: var(--carte);
-    border-radius: 20px;
-    padding: 20px 24px;
-    margin-bottom: 18px;
-  }
-  .carte h2 { font-size: 1.15rem; margin: 0 0 8px; color: var(--accent); }
-  .carte h3 { font-size: 1rem; margin: 16px 0 4px; }
-  .carte p, .carte ul, .carte ol { margin: 0 0 10px; }
-  .carte p:last-child { margin-bottom: 0; }
-  ul, ol { padding-left: 20px; }
-  a { color: var(--accent); }
-  .bouton {
-    display: inline-block;
-    background: var(--accent);
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 13px 22px;
-    border-radius: 25px;
-  }
-  .pied {
-    color: var(--texte2);
-    font-size: 0.9rem;
-    text-align: center;
-    margin-top: 32px;
-  }
-  .pied a { color: var(--texte2); }
-</style>
+<title>Vivement — Les dates qui comptent, en widgets</title>
+<meta name="description" content="Vivement — les dates qui comptent, en widgets. Jours fériés, ponts, vacances, poubelles, paie. Compose tes widgets pour iPhone, iPad, Mac et Apple Watch.">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<header class="site">
+  <a class="marque" href="index.html">Vivement</a>
+  <nav>
+    <a href="support.html">Support</a>
+  </nav>
+</header>
+
 <main>
-  <h1>Vivement</h1>
-  <p class="sous-titre">Les dates qui comptent, en widgets. Jours fériés, ponts, vacances scolaires, poubelles, paie, congés… sur ton écran d'accueil, ton écran verrouillé, ton Mac.</p>
 
-  <div class="carte">
-    <h2>Questions fréquentes</h2>
-
-    <h3>Comment poser le widget ?</h3>
-    <ol>
-      <li>Touche longuement un espace vide de l'écran d'accueil jusqu'à ce que les icônes bougent.</li>
-      <li>Touche Modifier puis Ajouter un widget, et cherche Vivement.</li>
-      <li>Balaye pour choisir la taille, puis touche Ajouter le widget.</li>
-    </ol>
-
-    <h3>Mes données se synchronisent entre mes appareils ?</h3>
-    <p>Oui, automatiquement via ton iCloud privé, si iCloud est activé pour Vivement (Réglages iOS → ton nom → iCloud). Rien ne transite par nos serveurs : nous n'en avons pas.</p>
-
-    <h3>Comment restaurer mon achat Premium ?</h3>
-    <p>Réglages de l'app → Vivement Premium → Restaurer un achat, avec le même compte Apple. Le partage familial est pris en charge.</p>
-
-    <h3>Les dates affichées sont fausses ?</h3>
-    <p>Vérifie ta commune et ta zone scolaire dans Réglages → Ma commune. Si une date reste fausse, écris-nous : on corrige vite.</p>
+  <div class="hero">
+    <h1>Vivement</h1>
+    <p class="accroche">Les dates qui comptent, en widgets.</p>
+    <p class="plateformes">Sur iPhone, iPad, Mac et Apple Watch.</p>
+    <!-- TODO : remplacer # par le lien App Store à la publication -->
+    <a class="bouton" href="#">Bientôt sur l'App Store</a>
   </div>
 
-  <div class="carte">
-    <h2>Contact</h2>
-    <p>Un bug, une idée de module, une question ? Réponse rapide, promis.</p>
-    <p><a class="bouton" href="mailto:studiopaprikafr@gmail.com">Écrire au support</a></p>
-  </div>
+  <section>
+    <h2>Ce que fait l'app</h2>
+    <div class="grille">
+      <div class="carte">
+        <h3 class="titre">Des widgets partout</h3>
+        <p>Pose tes widgets sur l'écran d'accueil, l'écran verrouillé, le bureau de ton Mac et le cadran de ton Apple Watch. Les dates qui te concernent, visibles d'un coup d'œil, sans ouvrir l'app.</p>
+      </div>
+      <div class="carte">
+        <h3 class="titre">20 modules</h3>
+        <p>Chaque module suit un type de date. Tu actives ceux qui te parlent, tu ignores le reste.</p>
+      </div>
+      <div class="carte">
+        <h3 class="titre">L'Atelier</h3>
+        <p>Compose ton widget comme tu veux : choisis tes modules, la taille, l'un des 3 styles et l'une des 8 couleurs d'accent. C'est ton widget, pas le nôtre.</p>
+      </div>
+    </div>
+    <ul class="modules">
+      <li>Jours fériés et ponts</li>
+      <li>Vacances scolaires</li>
+      <li>Poubelles</li>
+      <li>Paie</li>
+      <li>Congés et RTT</li>
+      <li>Anniversaires</li>
+      <li>Saints et dictons</li>
+      <li>Lune</li>
+      <li>Soleil</li>
+      <li>Fruits et légumes de saison</li>
+      <li>Soldes</li>
+      <li>Échéances</li>
+      <li>Et d'autres encore…</li>
+    </ul>
+  </section>
 
-  <p class="pied">
-    <a href="confidentialite.html">Politique de confidentialité</a> · Vivement est éditée par Tom Soghomonian (Studio Paprika), Paris.<br>
-    Aucune donnée collectée.
-  </p>
+  <section>
+    <h2>Tes données restent à toi</h2>
+    <div class="grille">
+      <div class="carte">
+        <h3 class="titre">Aucune donnée collectée</h3>
+        <p>Pas de compte, pas de pub, pas de traceur, aucun serveur à nous. L'étiquette App Store le dit : « Aucune donnée collectée ».</p>
+      </div>
+      <div class="carte">
+        <h3 class="titre">Synchro iCloud privé</h3>
+        <p>Tes réglages et compositions se synchronisent entre tes appareils via ton iCloud privé, et uniquement lui. Personne d'autre n'y a accès, pas même nous.</p>
+      </div>
+      <div class="carte">
+        <h3 class="titre">Achat unique</h3>
+        <p>Vivement Premium s'achète une fois, pour toujours. Pas d'abonnement, pas de relance. Le partage familial est pris en charge.</p>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+<footer class="site">
+  <nav>
+    <a href="support.html">Support</a>
+    <a href="cgu.html">Conditions d'utilisation</a>
+    <a href="confidentialite.html">Confidentialité</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+  </nav>
+  <p>Vivement est éditée par Tom Soghomonian (Studio Paprika), Paris.</p>
+</footer>
+
 </body>
 </html>

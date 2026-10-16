@@ -1,0 +1,236 @@
+/* Vivement — identité du site. Violet/prune, sobre, responsive, dark-mode. */
+
+:root {
+  --prune: #4A1D66;
+  --accent: #7A2FB5;
+  --accent-doux: #F3EAFB;
+  --fond: #FBF9FD;
+  --carte: #FFFFFF;
+  --texte: #211829;
+  --texte2: #6F6678;
+  --bordure: #ECE4F3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --prune: #D9BCF2;
+    --accent: #C79BF0;
+    --accent-doux: #2A1D38;
+    --fond: #120D18;
+    --carte: #1D1526;
+    --texte: #F3EEF8;
+    --texte2: #A79DB3;
+    --bordure: #2E2340;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- En-tête ---- */
+
+header.site {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 20px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.marque {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--prune);
+}
+
+.marque::before {
+  content: "";
+  display: inline-block;
+  width: 0.72em;
+  height: 0.72em;
+  margin-right: 0.45em;
+  border-radius: 28%;
+  background: linear-gradient(135deg, var(--accent), var(--prune));
+}
+
+header.site nav {
+  display: flex;
+  gap: 18px;
+}
+
+header.site nav a {
+  color: var(--texte2);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+header.site nav a:hover { color: var(--accent); }
+
+/* ---- Corps ---- */
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 20px 56px;
+}
+
+main.etroit { max-width: 680px; }
+
+h1 {
+  font-size: clamp(2rem, 6vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+
+.sous-titre {
+  color: var(--texte2);
+  font-size: 1.1rem;
+  margin: 0 0 32px;
+}
+
+a { color: var(--accent); }
+
+/* ---- Hero (accueil) ---- */
+
+.hero {
+  text-align: center;
+  padding: 40px 0 56px;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 9vw, 4rem);
+  margin: 0 0 10px;
+  background: linear-gradient(120deg, var(--accent), var(--prune));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero .accroche {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.hero .plateformes {
+  color: var(--texte2);
+  font-size: 1rem;
+  margin: 0 0 28px;
+}
+
+.bouton {
+  display: inline-block;
+  background: linear-gradient(120deg, var(--accent), var(--prune));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 14px 26px;
+  border-radius: 999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bouton { color: #1A1022; }
+}
+
+.bouton.secondaire {
+  background: var(--accent-doux);
+  color: var(--accent);
+}
+
+/* ---- Sections et cartes ---- */
+
+section { margin-bottom: 48px; }
+
+section > h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+}
+
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.carte {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 18px;
+  padding: 22px 24px;
+  margin-bottom: 16px;
+}
+
+.grille .carte { margin-bottom: 0; }
+
+.carte h2, .carte h3.titre {
+  font-size: 1.1rem;
+  margin: 0 0 8px;
+  color: var(--accent);
+}
+
+.carte h3 { font-size: 1rem; margin: 18px 0 4px; }
+.carte h3:first-of-type { margin-top: 0; }
+.carte p, .carte ul, .carte ol { margin: 0 0 10px; }
+.carte p:last-child, .carte ul:last-child, .carte ol:last-child { margin-bottom: 0; }
+
+ul, ol { padding-left: 20px; }
+
+/* ---- Modules (chips) ---- */
+
+.modules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.modules li {
+  background: var(--accent-doux);
+  color: var(--prune);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 13px;
+  border-radius: 999px;
+}
+
+/* ---- Pied de page ---- */
+
+footer.site {
+  border-top: 1px solid var(--bordure);
+  margin-top: 24px;
+  padding: 28px 20px 40px;
+  text-align: center;
+  color: var(--texte2);
+  font-size: 0.9rem;
+}
+
+footer.site nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  margin-bottom: 10px;
+}
+
+footer.site a { color: var(--texte2); text-decoration: none; }
+footer.site a:hover { color: var(--accent); }
+footer.site p { margin: 0; }
