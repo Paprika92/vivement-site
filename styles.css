@@ -212,6 +212,52 @@ ul, ol { padding-left: 20px; }
   border-radius: 999px;
 }
 
+/* ---- Galerie presse ---- */
+
+.galerie-titre {
+  font-size: 1rem;
+  color: var(--texte2);
+  margin: 24px 0 10px;
+}
+
+.galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.galerie-large {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.galerie a {
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--bordure);
+  background: var(--carte);
+  line-height: 0;
+}
+
+.galerie img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.galerie-icone {
+  grid-template-columns: none;
+  display: block;
+}
+
+.galerie-icone a {
+  display: inline-block;
+  width: 140px;
+  border: none;
+  background: none;
+  border-radius: 24%;
+}
+
 /* ---- Pied de page ---- */
 
 footer.site {
