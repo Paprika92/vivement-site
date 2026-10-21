@@ -1,0 +1,476 @@
+/* Vivement — home immersive (index-v2). Sections plein écran, scroll-snap, accents par module. */
+
+:root {
+  --prune: #4A1D66;
+  --accent: #7A2FB5;
+  --accent-doux: #F3EAFB;
+  --fond: #FBF9FD;
+  --carte: #FFFFFF;
+  --texte: #211829;
+  --texte2: #6F6678;
+  --bordure: #ECE4F3;
+
+  /* Palette des 8 accents de l'app (DESIGN.md) — valeur claire par défaut */
+  --bleuet: #3560B0;
+  --sarcelle: #10707A;
+  --foret: #2F6B3C;
+  --framboise: #AD2E66;
+  --encre: #3C3B42;
+  --ocre: #8C5A10;
+  --brique: #AD3D2B;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --prune: #D9BCF2;
+    --accent: #C79BF0;
+    --accent-doux: #2A1D38;
+    --fond: #120D18;
+    --carte: #1D1526;
+    --texte: #F3EEF8;
+    --texte2: #A79DB3;
+    --bordure: #2E2340;
+
+    --bleuet: #8FB8F2;
+    --sarcelle: #7AD0D8;
+    --foret: #8BD49C;
+    --framboise: #F28AB4;
+    --encre: #C7C5CF;
+    --ocre: #E5B35C;
+    --brique: #F2988A;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-snap-type: y proximity;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+@media (min-width: 720px) and (min-height: 620px) {
+  html { scroll-snap-type: y mandatory; }
+}
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* ---- En-tête fixe ---- */
+
+header.haut {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  background: color-mix(in srgb, var(--fond) 78%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.marque {
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--prune);
+}
+
+.marque::before {
+  content: "";
+  display: inline-block;
+  width: 0.72em;
+  height: 0.72em;
+  margin-right: 0.45em;
+  border-radius: 28%;
+  background: linear-gradient(135deg, var(--accent), var(--prune));
+}
+
+header.haut nav { display: flex; gap: 18px; }
+
+header.haut nav a {
+  color: var(--texte2);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+header.haut nav a:hover { color: var(--accent); }
+
+/* ---- Nav latérale (points) ---- */
+
+.points {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 900px) {
+  .points { display: flex; }
+}
+
+.points a {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--texte2);
+  opacity: 0.35;
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+
+.points a:hover { opacity: 0.7; }
+
+.points a.actif {
+  opacity: 1;
+  background: var(--accent);
+  transform: scale(1.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .points a { transition: none; }
+}
+
+/* ---- Sections plein écran ---- */
+
+.panneau {
+  min-height: 100svh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 84px 20px 48px;
+  background: var(--fond);
+}
+
+.panneau-contenu {
+  width: 100%;
+  max-width: 1020px;
+  display: grid;
+  gap: 28px;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.surtitre {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--acc, var(--accent));
+  margin: 0 0 10px;
+}
+
+.panneau h2 {
+  font-size: clamp(2rem, 7.5vw, 3.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 14px;
+}
+
+.panneau-texte p {
+  font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+  color: var(--texte2);
+  margin: 0;
+  max-width: 34em;
+}
+
+.panneau-visuel img {
+  display: block;
+  width: 100%;
+  max-width: 330px;
+  max-height: 52svh;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 36px rgba(33, 24, 41, 0.28));
+}
+
+@media (prefers-color-scheme: dark) {
+  .panneau-visuel img { filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.55)); }
+}
+
+/* Teinte de fond par section */
+.panneau.teinte {
+  background: linear-gradient(180deg, var(--fond) 0%,
+    color-mix(in srgb, var(--acc) 8%, var(--fond)) 100%);
+}
+
+/* Layouts desktop : image à droite, à gauche, centré */
+@media (min-width: 720px) {
+  .panneau-contenu { gap: 48px; }
+
+  .img-droite .panneau-contenu,
+  .img-gauche .panneau-contenu {
+    grid-template-columns: 1.1fr 0.9fr;
+    text-align: left;
+    justify-items: start;
+  }
+
+  .img-droite .panneau-visuel { justify-self: end; }
+
+  .img-gauche .panneau-contenu { grid-template-columns: 0.9fr 1.1fr; }
+  .img-gauche .panneau-visuel { order: -1; justify-self: start; }
+
+  .img-droite .panneau-texte p,
+  .img-gauche .panneau-texte p { max-width: 26em; }
+
+  .panneau-visuel img { max-width: 390px; max-height: 68svh; }
+}
+
+/* ---- Accents par section ---- */
+
+#feries   { --acc: var(--bleuet); }
+#vacances { --acc: var(--sarcelle); }
+#poubelles { --acc: var(--foret); }
+#rebours  { --acc: var(--framboise); }
+#almanach { --acc: var(--ocre); }
+#soldes   { --acc: var(--brique); }
+
+/* Lune : section sombre, ambiance nuit, dans les deux schémas */
+#lune {
+  --acc: #C7C5CF;
+  background: radial-gradient(ellipse 120% 80% at 50% 12%, #2A2440 0%, #17141F 55%, #100E15 100%);
+  color: #F5F3F7;
+}
+
+#lune .panneau-texte p { color: #B8B4C0; }
+#lune .panneau-visuel img { filter: drop-shadow(0 16px 44px rgba(0, 0, 0, 0.7)); }
+
+/* ---- Hero ---- */
+
+#accueil .panneau-contenu { gap: 20px; }
+
+#accueil h1 {
+  font-size: clamp(2.8rem, 10vw, 4.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 10px;
+  background: linear-gradient(120deg, var(--accent), var(--prune));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#accueil .accroche {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-weight: 600;
+  color: var(--texte);
+  margin: 0 0 8px;
+}
+
+#accueil .plateformes {
+  color: var(--texte2);
+  font-size: 1rem;
+  margin: 0 0 24px;
+}
+
+#accueil .panneau-visuel img { max-height: 46svh; }
+
+@media (min-width: 720px) {
+  #accueil .panneau-visuel img { max-height: 64svh; max-width: 330px; }
+}
+
+.bouton {
+  display: inline-block;
+  background: linear-gradient(120deg, var(--accent), var(--prune));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 14px 26px;
+  border-radius: 999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bouton { color: #1A1022; }
+}
+
+.bouton.grand {
+  font-size: 1.1rem;
+  padding: 17px 34px;
+}
+
+/* Chevron de scroll */
+
+.chevron {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--texte2);
+  text-decoration: none;
+}
+
+.chevron::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-right: 2.5px solid currentColor;
+  border-bottom: 2.5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chevron { animation: plonge 2.2s ease-in-out infinite; }
+  @keyframes plonge {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+}
+
+#accueil { position: relative; }
+
+/* ---- Grille des 12 autres modules ---- */
+
+#modules .panneau-contenu { display: block; text-align: center; }
+
+#modules h2 { margin-bottom: 8px; }
+
+#modules .section-intro {
+  color: var(--texte2);
+  margin: 0 0 26px;
+}
+
+.modules-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.modules-grille li {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 14px;
+  padding: 14px 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--prune);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 78px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.modules-grille .picto { font-size: 1.4rem; line-height: 1; }
+
+/* ---- Section finale ---- */
+
+#telecharger {
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 0;
+  gap: 32px;
+}
+
+#telecharger .panneau-contenu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+#telecharger .plateformes {
+  font-size: clamp(1.05rem, 3vw, 1.3rem);
+  font-weight: 600;
+  color: var(--texte);
+  margin: 0;
+}
+
+#telecharger .conditions {
+  color: var(--texte2);
+  margin: 0 0 14px;
+  max-width: 34em;
+}
+
+.etiquette {
+  display: inline-block;
+  background: var(--accent-doux);
+  color: var(--prune);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 7px 15px;
+  border-radius: 999px;
+  margin-top: 18px;
+}
+
+/* ---- Pied de page ---- */
+
+footer.site {
+  width: 100%;
+  border-top: 1px solid var(--bordure);
+  padding: 28px 20px 40px;
+  text-align: center;
+  color: var(--texte2);
+  font-size: 0.9rem;
+}
+
+footer.site nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  margin-bottom: 10px;
+}
+
+footer.site a { color: var(--texte2); text-decoration: none; }
+footer.site a:hover { color: var(--accent); }
+footer.site p { margin: 0; }
+
+/* ---- Animations d'entrée ----
+   Masquées seulement si le JS tourne (classe js sur <html>) et sans reduced-motion. */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.js .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
