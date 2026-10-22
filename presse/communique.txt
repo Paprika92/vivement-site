@@ -3,7 +3,7 @@ VIVEMENT — KIT PRESSE
 
 Description courte
 ------------------
-Vivement est un almanach français en widgets : jours fériés et ponts, vacances scolaires, poubelles, paie, lune, soldes… Chacun compose son widget (modules, taille, style, couleur) et le pose sur iPhone, iPad, Mac et Apple Watch.
+Vivement est une app de widgets du quotidien français : jours fériés et ponts, vacances scolaires, poubelles, paie, lune, soldes… Chacun compose son widget (modules, taille, style, couleur) et le pose sur iPhone, iPad, Mac et Apple Watch.
 
 Description longue
 ------------------
