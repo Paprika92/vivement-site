@@ -1,16 +1,17 @@
-/* Vivement — home immersive (index-v2). Sections plein écran, scroll-snap, accents par module. */
+/* Vivement — home immersive (index-v2). Pages-affiches : fond plein par section,
+   typo système poussée à fond, numéros géants en pseudo-éléments (HTML inchangé). */
 
 :root {
   --prune: #4A1D66;
   --accent: #7A2FB5;
   --accent-doux: #F3EAFB;
-  --fond: #FBF9FD;
+  --fond: #FAF4E9;          /* crème : base du hero et de la section finale */
   --carte: #FFFFFF;
   --texte: #211829;
   --texte2: #6F6678;
-  --bordure: #ECE4F3;
+  --bordure: #E9DFCF;
 
-  /* Palette des 8 accents de l'app (DESIGN.md) — valeur claire par défaut */
+  /* Palette des 8 accents de l'app (DESIGN.md) — pour l'UI (nav, boutons) */
   --bleuet: #3560B0;
   --sarcelle: #10707A;
   --foret: #2F6B3C;
@@ -18,6 +19,9 @@
   --encre: #3C3B42;
   --ocre: #8C5A10;
   --brique: #AD3D2B;
+
+  /* Texte posé sur les affiches */
+  --creme-affiche: #FFFBF2;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,19 +29,11 @@
     --prune: #D9BCF2;
     --accent: #C79BF0;
     --accent-doux: #2A1D38;
-    --fond: #120D18;
+    --fond: #15101D;        /* nuit : hero et finale sombres, la Lune reste plus noire */
     --carte: #1D1526;
     --texte: #F3EEF8;
     --texte2: #A79DB3;
     --bordure: #2E2340;
-
-    --bleuet: #8FB8F2;
-    --sarcelle: #7AD0D8;
-    --foret: #8BD49C;
-    --framboise: #F28AB4;
-    --encre: #C7C5CF;
-    --ocre: #E5B35C;
-    --brique: #F2988A;
   }
 }
 
@@ -59,7 +55,7 @@ body {
   margin: 0;
   background: var(--fond);
   color: var(--texte);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -79,7 +75,7 @@ header.haut {
   justify-content: space-between;
   gap: 16px;
   padding: 14px 20px;
-  background: color-mix(in srgb, var(--fond) 78%, transparent);
+  background: color-mix(in srgb, var(--fond) 70%, transparent);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
@@ -113,7 +109,9 @@ header.haut nav a {
 
 header.haut nav a:hover { color: var(--accent); }
 
-/* ---- Nav latérale (points) ---- */
+/* ---- Nav latérale (points) ----
+   La page est surtout faite d'affiches colorées : points blancs avec liseré sombre,
+   lisibles sur fond plein comme sur crème. */
 
 .points {
   position: fixed;
@@ -137,17 +135,17 @@ header.haut nav a:hover { color: var(--accent); }
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--texte2);
-  opacity: 0.35;
-  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 1.5px rgba(20, 12, 28, 0.35);
+  opacity: 0.45;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.points a:hover { opacity: 0.7; }
+.points a:hover { opacity: 0.8; }
 
 .points a.actif {
   opacity: 1;
-  background: var(--accent);
-  transform: scale(1.35);
+  transform: scale(1.4);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -159,6 +157,9 @@ header.haut nav a:hover { color: var(--accent); }
 .panneau {
   min-height: 100svh;
   scroll-snap-align: start;
+  overflow: hidden; /* le numéro géant ne doit pas déborder sur la section voisine */
+  position: relative;
+  z-index: 0; /* stacking context : le numéro en z-index négatif reste devant le fond */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,9 +169,9 @@ header.haut nav a:hover { color: var(--accent); }
 
 .panneau-contenu {
   width: 100%;
-  max-width: 1020px;
+  max-width: 1100px;
   display: grid;
-  gap: 28px;
+  gap: 24px;
   align-items: center;
   justify-items: center;
   text-align: center;
@@ -178,97 +179,130 @@ header.haut nav a:hover { color: var(--accent); }
 
 .surtitre {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--acc, var(--accent));
-  margin: 0 0 10px;
-}
-
-.panneau h2 {
-  font-size: clamp(2rem, 7.5vw, 3.6rem);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
   margin: 0 0 14px;
 }
 
-.panneau-texte p {
-  font-size: clamp(1.02rem, 2.4vw, 1.2rem);
-  color: var(--texte2);
-  margin: 0;
-  max-width: 34em;
+.panneau h2 {
+  font-size: clamp(3rem, 9vw, 8rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  text-wrap: balance;
+  margin: 0 0 18px;
 }
+
+.panneau-texte {
+  position: relative;
+}
+
+.panneau-texte p {
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  color: var(--texte2);
+  margin: 0 auto;
+  max-width: 32em;
+}
+
+/* Numéro de section géant, façon magazine, derrière le titre.
+   Pseudo-élément : aucune modification du HTML, alt vide pour les lecteurs d'écran. */
+
+.panneau-texte::before {
+  position: absolute;
+  left: 50%;
+  top: -0.42em;
+  transform: translateX(-50%);
+  z-index: -1;
+  font-size: clamp(9rem, 28vw, 20rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.11);
+  pointer-events: none;
+}
+
+#feries    .panneau-texte::before { content: "01" / ""; }
+#vacances  .panneau-texte::before { content: "02" / ""; }
+#poubelles .panneau-texte::before { content: "03" / ""; }
+#rebours   .panneau-texte::before { content: "04" / ""; }
+#lune      .panneau-texte::before { content: "05" / ""; }
+#almanach  .panneau-texte::before { content: "06" / ""; }
+#soldes    .panneau-texte::before { content: "07" / ""; }
+
+/* ---- Visuels : widget posé sur l'affiche ---- */
 
 .panneau-visuel img {
   display: block;
   width: 100%;
-  max-width: 330px;
-  max-height: 52svh;
+  max-width: 320px;
+  max-height: 40svh;
   object-fit: contain;
-  filter: drop-shadow(0 16px 36px rgba(33, 24, 41, 0.28));
+  filter: drop-shadow(0 30px 55px rgba(10, 6, 16, 0.4));
 }
 
-@media (prefers-color-scheme: dark) {
-  .panneau-visuel img { filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.55)); }
-}
-
-/* Teinte de fond par section */
-.panneau.teinte {
-  background: linear-gradient(180deg, var(--fond) 0%,
-    color-mix(in srgb, var(--acc) 8%, var(--fond)) 100%);
-}
-
-/* Layouts desktop : image à droite, à gauche, centré */
 @media (min-width: 720px) {
-  .panneau-contenu { gap: 48px; }
+  .panneau-contenu { gap: 36px; }
+  .panneau-visuel img { max-width: 380px; max-height: 44svh; }
+}
 
-  .img-droite .panneau-contenu,
-  .img-gauche .panneau-contenu {
-    grid-template-columns: 1.1fr 0.9fr;
-    text-align: left;
-    justify-items: start;
+/* Très léger flottement du widget, lent, coupé en reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+  .teinte .panneau-visuel img,
+  #lune .panneau-visuel img {
+    animation: flotte 7s ease-in-out infinite alternate;
   }
-
-  .img-droite .panneau-visuel { justify-self: end; }
-
-  .img-gauche .panneau-contenu { grid-template-columns: 0.9fr 1.1fr; }
-  .img-gauche .panneau-visuel { order: -1; justify-self: start; }
-
-  .img-droite .panneau-texte p,
-  .img-gauche .panneau-texte p { max-width: 26em; }
-
-  .panneau-visuel img { max-width: 390px; max-height: 68svh; }
+  @keyframes flotte {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-14px); }
+  }
 }
 
-/* ---- Accents par section ---- */
+/* ---- Affiches : fond plein par section ----
+   Couleurs fixes, identiques dans les deux schémas (le fond plein EST l'identité
+   de la section). Contraste blanc vérifié >= 5.8:1 sur chaque fond (AA). */
 
-#feries   { --acc: var(--bleuet); }
-#vacances { --acc: var(--sarcelle); }
-#poubelles { --acc: var(--foret); }
-#rebours  { --acc: var(--framboise); }
-#almanach { --acc: var(--ocre); }
-#soldes   { --acc: var(--brique); }
+.panneau.teinte {
+  background: var(--affiche, var(--accent));
+  color: var(--creme-affiche);
+}
 
-/* Lune : section sombre, ambiance nuit, dans les deux schémas */
+.panneau.teinte .surtitre { color: rgba(255, 255, 255, 0.85); }
+.panneau.teinte h2 { color: var(--creme-affiche); }
+.panneau.teinte .panneau-texte p { color: rgba(255, 255, 255, 0.92); }
+
+#feries    { --affiche: #3560B0; }
+#vacances  { --affiche: #10707A; }
+#poubelles { --affiche: #2F6B3C; }
+#rebours   { --affiche: #AD2E66; }
+#almanach  { --affiche: #8C5A10; }
+#soldes    { --affiche: #AD3D2B; }
+
+/* Lune : la section la plus sombre de la page, dans les deux schémas */
 #lune {
-  --acc: #C7C5CF;
-  background: radial-gradient(ellipse 120% 80% at 50% 12%, #2A2440 0%, #17141F 55%, #100E15 100%);
-  color: #F5F3F7;
+  background: radial-gradient(ellipse 120% 80% at 50% 12%, #231E38 0%, #110F18 55%, #0B0A10 100%);
+  color: var(--creme-affiche);
 }
 
-#lune .panneau-texte p { color: #B8B4C0; }
-#lune .panneau-visuel img { filter: drop-shadow(0 16px 44px rgba(0, 0, 0, 0.7)); }
+#lune .surtitre { color: rgba(255, 255, 255, 0.75); }
+#lune .panneau-texte::before { color: rgba(255, 255, 255, 0.07); }
+#lune .panneau-texte p { color: rgba(255, 255, 255, 0.85); }
+#lune .panneau-visuel img { filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.75)); }
 
 /* ---- Hero ---- */
 
-#accueil .panneau-contenu { gap: 20px; }
+#accueil { position: relative; }
+
+#accueil .panneau-contenu { gap: 18px; }
 
 #accueil h1 {
-  font-size: clamp(2.8rem, 10vw, 4.6rem);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  margin: 0 0 10px;
+  font-size: clamp(4rem, 15vw, 10.5rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  margin: 0 0 8px;
   background: linear-gradient(120deg, var(--accent), var(--prune));
   -webkit-background-clip: text;
   background-clip: text;
@@ -276,22 +310,30 @@ header.haut nav a:hover { color: var(--accent); }
 }
 
 #accueil .accroche {
-  font-size: clamp(1.2rem, 4vw, 1.5rem);
-  font-weight: 600;
+  font-size: clamp(1.25rem, 4vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--texte);
-  margin: 0 0 8px;
+  margin: 0 0 6px;
 }
 
 #accueil .plateformes {
   color: var(--texte2);
   font-size: 1rem;
-  margin: 0 0 24px;
+  margin: 0 0 22px;
 }
 
-#accueil .panneau-visuel img { max-height: 46svh; }
+#accueil .panneau-visuel img {
+  max-height: 42svh;
+  filter: drop-shadow(0 26px 50px rgba(74, 29, 102, 0.3));
+}
 
 @media (min-width: 720px) {
-  #accueil .panneau-visuel img { max-height: 64svh; max-width: 330px; }
+  #accueil .panneau-visuel img { max-height: 50svh; max-width: 320px; }
+}
+
+@media (prefers-color-scheme: dark) {
+  #accueil .panneau-visuel img { filter: drop-shadow(0 26px 50px rgba(0, 0, 0, 0.6)); }
 }
 
 .bouton {
@@ -346,17 +388,25 @@ header.haut nav a:hover { color: var(--accent); }
   }
 }
 
-#accueil { position: relative; }
+/* ---- Grille des 12 autres modules : affiche violette, cartes en verre ---- */
 
-/* ---- Grille des 12 autres modules ---- */
+#modules {
+  background: #7A2FB5;
+  color: var(--creme-affiche);
+}
 
 #modules .panneau-contenu { display: block; text-align: center; }
 
-#modules h2 { margin-bottom: 8px; }
+#modules h2 {
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  margin-bottom: 10px;
+  color: var(--creme-affiche);
+}
 
 #modules .section-intro {
-  color: var(--texte2);
-  margin: 0 0 26px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+  margin: 0 0 30px;
 }
 
 .modules-grille {
@@ -369,13 +419,13 @@ header.haut nav a:hover { color: var(--accent); }
 }
 
 .modules-grille li {
-  background: var(--carte);
-  border: 1px solid var(--bordure);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 14px;
   padding: 14px 12px;
   font-size: 0.92rem;
   font-weight: 600;
-  color: var(--prune);
+  color: var(--creme-affiche);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -388,7 +438,7 @@ header.haut nav a:hover { color: var(--accent); }
 
 .modules-grille .picto { font-size: 1.4rem; line-height: 1; }
 
-/* ---- Section finale ---- */
+/* ---- Section finale : retour au crème, typo énorme ---- */
 
 #telecharger {
   flex-direction: column;
@@ -404,6 +454,14 @@ header.haut nav a:hover { color: var(--accent); }
   align-items: center;
   justify-content: center;
   gap: 16px;
+}
+
+#telecharger h2 {
+  font-size: clamp(3rem, 8.5vw, 7rem);
+  background: linear-gradient(120deg, var(--accent), var(--prune));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 #telecharger .plateformes {
@@ -458,7 +516,7 @@ footer.site p { margin: 0; }
 
 .js .reveal {
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(40px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
