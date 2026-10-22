@@ -229,7 +229,7 @@ header.haut nav a:hover { color: var(--accent); }
 #poubelles .panneau-texte::before { content: "03" / ""; }
 #rebours   .panneau-texte::before { content: "04" / ""; }
 #lune      .panneau-texte::before { content: "05" / ""; }
-#almanach  .panneau-texte::before { content: "06" / ""; }
+#saison    .panneau-texte::before { content: "06" / ""; }
 #soldes    .panneau-texte::before { content: "07" / ""; }
 
 /* ---- Visuels : widget posé sur l'affiche ---- */
@@ -277,7 +277,7 @@ header.haut nav a:hover { color: var(--accent); }
 #vacances  { --affiche: #10707A; }
 #poubelles { --affiche: #2F6B3C; }
 #rebours   { --affiche: #AD2E66; }
-#almanach  { --affiche: #8C5A10; }
+#saison    { --affiche: #8C5A10; }
 #soldes    { --affiche: #AD3D2B; }
 
 /* Lune : la section la plus sombre de la page, dans les deux schémas */
@@ -468,12 +468,12 @@ header.haut nav a:hover { color: var(--accent); }
   font-size: clamp(1.05rem, 3vw, 1.3rem);
   font-weight: 600;
   color: var(--texte);
-  margin: 0;
+  margin: 0 auto;
 }
 
 #telecharger .conditions {
   color: var(--texte2);
-  margin: 0 0 14px;
+  margin: 0 auto 14px;
   max-width: 34em;
 }
 
@@ -530,5 +530,21 @@ footer.site p { margin: 0; }
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+
+/* ---- Hero en deux colonnes sur grand écran : texte à gauche, widget à droite ---- */
+@media (min-width: 900px) {
+  #accueil .panneau-contenu {
+    grid-template-columns: 1.05fr 0.95fr;
+    justify-items: start;
+    text-align: left;
+    gap: 56px;
+  }
+  #accueil .panneau-visuel { justify-self: center; }
+  #accueil .panneau-visuel img {
+    max-height: 62svh;
+    max-width: 400px;
   }
 }
