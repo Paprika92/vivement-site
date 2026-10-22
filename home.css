@@ -81,6 +81,9 @@ header.haut {
 }
 
 .marque {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
   font-weight: 800;
   font-size: 1.15rem;
   letter-spacing: -0.02em;
@@ -88,15 +91,7 @@ header.haut {
   color: var(--prune);
 }
 
-.marque::before {
-  content: "";
-  display: inline-block;
-  width: 0.72em;
-  height: 0.72em;
-  margin-right: 0.45em;
-  border-radius: 28%;
-  background: linear-gradient(135deg, var(--accent), var(--prune));
-}
+.marque img { display: block; }
 
 header.haut nav { display: flex; gap: 18px; }
 
@@ -538,8 +533,8 @@ footer.site p { margin: 0; }
 @media (min-width: 900px) {
   #accueil .panneau-contenu {
     grid-template-columns: 1.05fr 0.95fr;
-    justify-items: start;
-    text-align: left;
+    justify-items: center;
+    text-align: center;
     gap: 56px;
   }
   #accueil .panneau-visuel { justify-self: center; }
