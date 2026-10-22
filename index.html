@@ -11,157 +11,255 @@
 <meta property="og:url" content="https://vivement.studiopaprika.fr/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icone-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icone-16.png">
+<link rel="apple-touch-icon" href="assets/icone-180.png">
+<link rel="stylesheet" href="home.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<header class="site">
-  <a class="marque" href="index.html">Vivement</a>
+<header class="haut">
+  <a class="marque" href="#accueil"><img src="assets/icone-64.png" width="26" height="26" alt="">Vivement</a>
   <nav>
+    <a href="presse.html">Presse</a>
     <a href="support.html">Support</a>
   </nav>
 </header>
 
+<nav class="points" aria-label="Sections de la page">
+  <a href="#accueil" aria-label="Accueil"></a>
+  <a href="#feries" aria-label="Jours fériés et ponts"></a>
+  <a href="#vacances" aria-label="Vacances scolaires"></a>
+  <a href="#poubelles" aria-label="Poubelles"></a>
+  <a href="#rebours" aria-label="Compte à rebours"></a>
+  <a href="#lune" aria-label="Lune"></a>
+  <a href="#saison" aria-label="Fruits et légumes de saison"></a>
+  <a href="#soldes" aria-label="Soldes"></a>
+  <a href="#telecharger" aria-label="Télécharger"></a>
+</nav>
+
 <main>
 
-  <div class="hero hero-duo">
-    <div class="hero-texte">
-      <h1>Vivement</h1>
-      <p class="accroche">Les dates qui comptent, en widgets.</p>
-      <p class="plateformes">Sur iPhone, iPad, Mac et Apple Watch.</p>
-      <a class="bouton" href="https://apps.apple.com/fr/app/id6818991123">Télécharger sur l'App Store</a>
-    </div>
-    <div class="hero-visuel">
-      <div class="phone">
-        <div class="screen">
-          <img class="shot" src="assets/vivement-home.webp" width="1206" height="2622"
-               alt="Écran d'accueil iPhone avec un widget Vivement : jours fériés, fin des vacances, soldes, lune, poubelles">
-        </div>
+  <section id="accueil" class="panneau">
+    <div class="panneau-contenu">
+      <div class="panneau-texte">
+        <h1>Vivement</h1>
+        <p class="accroche">Les dates qui comptent, en widgets.</p>
+        <p class="plateformes">Sur iPhone, iPad, Mac et Apple Watch.</p>
+        <a class="bouton" href="https://apps.apple.com/fr/app/id6818991123">Télécharger sur l'App Store</a>
+      </div>
+      <div class="panneau-visuel">
+        <img src="assets/widget-hero.webp" width="1049" height="1697" fetchpriority="high"
+             alt="Widget Vivement sombre : jours fériés en vedette, soldes, saison, lune, compte à rebours">
       </div>
     </div>
-  </div>
+    <a class="chevron" href="#feries" aria-label="Voir la suite"></a>
+  </section>
 
-  <section>
-    <h2>Comment ça marche</h2>
-    <div class="etapes">
-      <div class="carte etape">
-        <p class="etape-num">1</p>
-        <h3 class="titre">Active tes modules</h3>
-        <p>Fériés, vacances, poubelles, paie : tu actives ceux qui te parlent, tu ignores le reste.</p>
-        <img src="presse/apercu/vivement-iphone-04.png" loading="lazy" width="414" height="900"
-             alt="La liste des modules de Vivement sur iPhone : échéances, anniversaires, fériés, poubelles, soldes, lune">
+  <section id="feries" class="panneau teinte img-droite">
+    <div class="panneau-contenu">
+      <div class="panneau-texte reveal">
+        <span class="surtitre">Jours fériés et ponts</span>
+        <h2>Vivement le prochain férié</h2>
+        <p>Le compte à rebours vers le prochain jour férié, et les ponts qui valent le coup. Pose tes congés avant tout le monde.</p>
       </div>
-      <div class="carte etape">
-        <p class="etape-num">2</p>
-        <h3 class="titre">Compose dans l'Atelier</h3>
-        <p>Choisis tes modules, la taille, l'un des 3 styles et l'une des 8 couleurs d'accent. C'est ton widget, pas le nôtre.</p>
-        <img src="presse/apercu/vivement-iphone-02.png" loading="lazy" width="414" height="900"
-             alt="L'Atelier de Vivement sur iPhone : compositions, sélecteur de taille et aperçu du widget en direct">
-      </div>
-      <div class="carte etape">
-        <p class="etape-num">3</p>
-        <h3 class="titre">Pose ton widget</h3>
-        <p>Écran d'accueil, écran verrouillé, bureau du Mac, cadran de la Watch : les dates te suivent, sans ouvrir l'app.</p>
-        <img src="presse/apercu/vivement-iphone-01.png" loading="lazy" width="414" height="900"
-             alt="Un widget Vivement posé sur l'écran d'accueil d'un iPhone, avec contrôle technique, soldes et pleine lune">
+      <div class="panneau-visuel reveal">
+        <img src="assets/widget-feries.webp" loading="lazy" width="627" height="658"
+             alt="Widget Vivement : compte à rebours vers le prochain jour férié et les ponts à venir">
       </div>
     </div>
   </section>
 
-  <section>
-    <h2>20 modules</h2>
-    <p class="section-intro">Chaque module suit un type de date. Tu actives ceux qui te parlent, tu ignores le reste.</p>
-    <ul class="modules-grille">
-      <li>Jours fériés et ponts</li>
-      <li>Vacances scolaires</li>
-      <li>Année et semaine</li>
-      <li>Changement d'heure et saisons</li>
-      <li>Fêtes à ne pas oublier</li>
-      <li>Saint du jour</li>
-      <li>Dicton du jour</li>
-      <li>Lune</li>
-      <li>Soleil</li>
-      <li>Fruits et légumes de saison</li>
-      <li>Paie</li>
-      <li>Congés et RTT</li>
-      <li>Jours ouvrés restants</li>
-      <li>Poubelles et encombrants</li>
-      <li>Échéances et dates perso</li>
-      <li>Soldes et dates conso</li>
-      <li>Compte à rebours</li>
-      <li>Anniversaires</li>
-      <li>Prochain événement</li>
-      <li>Prochaine tâche</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Tes données restent à toi</h2>
-    <div class="grille">
-      <div class="carte">
-        <h3 class="titre">Aucune donnée collectée</h3>
-        <p>Pas de compte, pas de pub, pas de traceur, aucun serveur à nous. L'étiquette App Store le dit : « Aucune donnée collectée ».</p>
+  <section id="vacances" class="panneau teinte img-gauche">
+    <div class="panneau-contenu">
+      <div class="panneau-texte reveal">
+        <span class="surtitre">Vacances scolaires</span>
+        <h2>Les vacances approchent</h2>
+        <p>Zone A, B ou C : tu choisis ta commune une fois, l'app déduit ta zone. Décompte vers le départ, puis vers la reprise.</p>
       </div>
-      <div class="carte">
-        <h3 class="titre">Synchro iCloud privé</h3>
-        <p>Tes réglages et compositions se synchronisent entre tes appareils via ton iCloud privé, et uniquement lui. Personne d'autre n'y a accès, pas même nous.</p>
-      </div>
-      <div class="carte">
-        <h3 class="titre">Achat unique</h3>
-        <p>Vivement Premium s'achète une fois, pour toujours. Pas d'abonnement, pas de relance. Le partage familial est pris en charge.</p>
+      <div class="panneau-visuel reveal">
+        <img src="assets/widget-vacances.webp" loading="lazy" width="627" height="658"
+             alt="Widget Vivement : décompte vers les prochaines vacances scolaires de ta zone">
       </div>
     </div>
   </section>
 
-  <section>
-    <h2>Sur tous tes écrans</h2>
-    <div class="bande">
-      <img src="presse/apercu/vivement-ipad-01.png" loading="lazy" width="750" height="1000"
-           alt="Un widget Vivement posé sur l'écran d'accueil d'un iPad">
-      <img src="presse/apercu/vivement-mac-02.png" loading="lazy" width="1200" height="750"
-           alt="L'app Vivement sur Mac : l'Atelier avec l'aperçu du widget et la liste des modules">
-      <img class="widget-flottant" src="assets/widget-sombre.webp" loading="lazy" width="1032" height="1077"
-           alt="Widget Vivement en sombre : jours fériés, fin des vacances, soldes">
+  <section id="poubelles" class="panneau teinte">
+    <div class="panneau-contenu">
+      <div class="panneau-texte reveal">
+        <span class="surtitre">Poubelles et encombrants</span>
+        <h2>Le bac jaune, c'est demain</h2>
+        <p>Saisis tes collectes une fois, même les semaines paires et les encombrants du deuxième mardi. Plus jamais la poubelle ratée.</p>
+      </div>
+      <div class="panneau-visuel reveal">
+        <img src="assets/widget-poubelles.webp" loading="lazy" width="627" height="658"
+             alt="Widget Vivement : prochaine collecte des poubelles, bac jaune demain">
+      </div>
     </div>
-    <p class="legende">iPad, Mac, iPhone : les mêmes compositions, synchronisées par ton iCloud privé.</p>
   </section>
 
-  <section>
-    <h2>Questions fréquentes</h2>
-    <details class="carte">
-      <summary>Les dates se mettent à jour toutes seules ?</summary>
-      <p>Oui. Tout ce qui se calcule — fériés, ponts, soldes, lune, soleil — est calculé par l'app. Et les calendriers officiels, comme les vacances scolaires et les dates fiscales, sont mis à jour automatiquement, sans mise à jour de l'app.</p>
-    </details>
-    <details class="carte">
-      <summary>Quelles zones de vacances ?</summary>
-      <p>A, B et C, plus la Corse et l'outre-mer. Tu choisis ta commune une fois, l'app déduit ta zone.</p>
-    </details>
-    <details class="carte">
-      <summary>Et ma vie privée ?</summary>
-      <p>Aucune collecte, pas de compte, pas de pub. La synchronisation passe par ton iCloud privé, et uniquement lui.</p>
-    </details>
-    <details class="carte">
-      <summary>Vivement Premium, c'est quoi ?</summary>
-      <p>Un achat unique à 2,99 €, pour toujours. Pas d'abonnement. Le partage familial est pris en charge.</p>
-    </details>
-    <details class="carte">
-      <summary>Sur Apple Watch aussi ?</summary>
-      <p>Oui : des complications sur le cadran, avec l'iPhone qui fait le travail.</p>
-    </details>
+  <section id="rebours" class="panneau teinte img-droite">
+    <div class="panneau-contenu">
+      <div class="panneau-texte reveal">
+        <span class="surtitre">Compte à rebours</span>
+        <h2 id="titre-rebours">Le compte à rebours vers Noël</h2>
+        <p>Mariage, concert, retrouvailles : un compte à rebours pour ce qui te fait vibrer. En jours, en semaines ou en mois.</p>
+      </div>
+      <div class="panneau-visuel reveal">
+        <img src="assets/widget-compte-a-rebours.webp" loading="lazy" width="627" height="658"
+             alt="Widget Vivement : compte à rebours vers Noël">
+      </div>
+    </div>
+  </section>
+
+  <section id="lune" class="panneau">
+    <div class="panneau-contenu">
+      <div class="panneau-texte reveal">
+        <span class="surtitre">Lune</span>
+        <h2>La pleine lune approche</h2>
+        <p>La phase dessinée, le pourcentage éclairé, la prochaine pleine lune à la minute. Calculé sur ton appareil, sans réseau.</p>
+      </div>
+      <div class="panneau-visuel reveal">
+        <img src="assets/widget-lune.webp" loading="lazy" width="627" height="658"
+             alt="Widget Vivement : phase de lune dessinée et décompte vers la pleine lune">
+      </div>
+    </div>
+  </section>
+
+  <section id="saison" class="panneau teinte img-gauche">
+    <div class="panneau-contenu">
+      <div class="panneau-texte reveal">
+        <span class="surtitre">Fruits et légumes de saison</span>
+        <h2>Pomme, poire, raisin</h2>
+        <p>Ce qui est bon ce mois-ci, direct du calendrier. Change de mois, change d'assiette.</p>
+      </div>
+      <div class="panneau-visuel reveal">
+        <img src="assets/widget-saison.webp" loading="lazy" width="627" height="658"
+             alt="Widget Vivement : fruits et légumes du mois d'octobre">
+      </div>
+    </div>
+  </section>
+
+  <section id="soldes" class="panneau teinte img-droite">
+    <div class="panneau-contenu">
+      <div class="panneau-texte reveal">
+        <span class="surtitre">Soldes et dates conso</span>
+        <h2>Prêt pour les soldes</h2>
+        <p>Les dates officielles, y compris la Corse, l'Est et l'outre-mer. Black Friday et French Days compris.</p>
+      </div>
+      <div class="panneau-visuel reveal">
+        <img src="assets/widget-soldes.webp" loading="lazy" width="627" height="658"
+             alt="Widget Vivement : décompte vers les prochaines soldes">
+      </div>
+    </div>
+  </section>
+
+  <section id="modules" class="panneau teinte" style="--acc: var(--accent);">
+    <div class="panneau-contenu">
+      <div class="reveal">
+        <h2>Et 12 autres modules</h2>
+        <p class="section-intro">Tu actives ceux qui te parlent, tu ignores le reste.</p>
+        <ul class="modules-grille">
+          <li><span class="picto" aria-hidden="true">🗓</span>Année et semaine</li>
+          <li><span class="picto" aria-hidden="true">🕰</span>Changement d'heure et saisons</li>
+          <li><span class="picto" aria-hidden="true">🎁</span>Fêtes à ne pas oublier</li>
+          <li><span class="picto" aria-hidden="true">☀️</span>Soleil</li>
+          <li><span class="picto" aria-hidden="true">📖</span>Saint et dicton du jour</li>
+          <li><span class="picto" aria-hidden="true">💶</span>Paie</li>
+          <li><span class="picto" aria-hidden="true">🏖</span>Congés et RTT</li>
+          <li><span class="picto" aria-hidden="true">💼</span>Jours ouvrés restants</li>
+          <li><span class="picto" aria-hidden="true">⏳</span>Échéances et dates perso</li>
+          <li><span class="picto" aria-hidden="true">🎂</span>Anniversaires</li>
+          <li><span class="picto" aria-hidden="true">🚩</span>Prochain événement</li>
+          <li><span class="picto" aria-hidden="true">✅</span>Prochaine tâche</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="telecharger" class="panneau">
+    <div class="panneau-contenu">
+      <div class="panneau-texte reveal">
+        <h2>Gratuit sur l'App Store</h2>
+        <p class="plateformes">iPhone, iPad, Mac, Apple Watch.</p>
+        <p class="conditions">Gratuit, Premium à 2,99 € une fois pour toutes. Pas d'abonnement, pas de pub.</p>
+        <a class="bouton grand" href="https://apps.apple.com/fr/app/id6818991123">Télécharger sur l'App Store</a>
+        <br>
+        <span class="etiquette">Aucune donnée collectée</span>
+      </div>
+    </div>
+    <footer class="site">
+      <nav>
+        <a href="support.html">Support</a>
+        <a href="cgu.html">Conditions d'utilisation</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="presse.html">Presse</a>
+      </nav>
+      <p>Vivement est éditée par Tom Soghomonian (Studio Paprika), Paris.</p>
+    </footer>
   </section>
 
 </main>
 
-<footer class="site">
-  <nav>
-    <a href="support.html">Support</a>
-    <a href="cgu.html">Conditions d'utilisation</a>
-    <a href="confidentialite.html">Confidentialité</a>
-    <a href="mentions-legales.html">Mentions légales</a>
-    <a href="presse.html">Presse</a>
-  </nav>
-  <p>Vivement est éditée par Tom Soghomonian (Studio Paprika), Paris.</p>
-</footer>
+<script>
+(function () {
+  "use strict";
+
+  /* Compte à rebours vers le prochain 25 décembre, date locale du visiteur. */
+  var titre = document.getElementById("titre-rebours");
+  if (titre) {
+    var maintenant = new Date();
+    var aujourdhui = new Date(maintenant.getFullYear(), maintenant.getMonth(), maintenant.getDate());
+    var noel = new Date(maintenant.getFullYear(), 11, 25);
+    if (noel < aujourdhui) noel = new Date(maintenant.getFullYear() + 1, 11, 25);
+    var jours = Math.round((noel - aujourdhui) / 86400000);
+    titre.textContent = jours === 0 ? "Noël, c'est aujourd'hui" : "J-" + jours + " avant Noël";
+  }
+
+  var reduitMouvement = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Animations d'entrée : fade + translate léger, une seule fois par élément. */
+  var revelations = document.querySelectorAll(".reveal");
+  if (reduitMouvement || !("IntersectionObserver" in window)) {
+    revelations.forEach(function (el) { el.classList.add("visible"); });
+  } else {
+    var observateurReveal = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (entree) {
+        if (entree.isIntersecting) {
+          entree.target.classList.add("visible");
+          observateurReveal.unobserve(entree.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    revelations.forEach(function (el) { observateurReveal.observe(el); });
+  }
+
+  /* Point actif de la nav latérale. */
+  var liens = document.querySelectorAll(".points a");
+  var parAncre = {};
+  liens.forEach(function (lien) {
+    parAncre[lien.getAttribute("href").slice(1)] = lien;
+  });
+
+  if ("IntersectionObserver" in window) {
+    var observateurSections = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (entree) {
+        if (!entree.isIntersecting) return;
+        var lien = parAncre[entree.target.id];
+        if (!lien) return;
+        liens.forEach(function (l) { l.classList.remove("actif"); });
+        lien.classList.add("actif");
+      });
+    }, { rootMargin: "-45% 0px -45% 0px" });
+
+    document.querySelectorAll("main > section[id]").forEach(function (section) {
+      observateurSections.observe(section);
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
