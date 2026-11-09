@@ -543,3 +543,19 @@ footer.site p { margin: 0; }
     max-width: 400px;
   }
 }
+
+/* ---- Lien discret vers les pages calendrier ---- */
+
+#telecharger .reperes {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: var(--texte2);
+}
+
+#telecharger .reperes a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+#telecharger .reperes a:hover { color: var(--accent); }

@@ -165,6 +165,41 @@ main a {
 .carte h2 { margin-top: 0; }
 .carte > :last-child { margin-bottom: 0; }
 
+/* ---- Tableaux de dates (pages calendrier) ---- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--bordure);
+  vertical-align: top;
+}
+
+th {
+  color: var(--texte2);
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+tr:last-child td { border-bottom: none; }
+
+.weekend { color: var(--texte2); font-style: italic; }
+
+.note { font-size: 0.9rem; color: var(--texte2); }
+
+@media (max-width: 480px) {
+  table { font-size: 0.85rem; }
+  th, td { padding: 6px 6px; }
+}
+
 /* ---- Bouton (repris de la home) ---- */
 
 .bouton {
